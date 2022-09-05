@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -29,11 +30,13 @@ int main()
         number_of_chances = 5;
     }
 
-    const int SECRET_NUMBER = 42;
+
+    srand(time(NULL));
+    const int SECRET_NUMBER = rand() % 100;
     bool did_not_got_it_right = true;
     int guess;
     int attempts = 0;
-
+    
     double score = 1000.0;
 
     for(attempts = 1; attempts < number_of_chances; attempts++)
