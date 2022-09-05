@@ -14,11 +14,16 @@ int main()
     int guess;
     int attempts = 0;
 
+    double score = 1000.0;
+
     while (did_not_got_it_right)
     {
         cout << "Guess a number: ";
         cin >> guess;
         cout << "You guessed: " << guess << endl;
+
+        double lost_points = abs(guess - SECRET_NUMBER) / 2.0;
+        score -= lost_points;
 
         bool got_it_right = guess == SECRET_NUMBER;
         bool is_bigger = guess > SECRET_NUMBER;
@@ -42,4 +47,5 @@ int main()
 
     cout << "GAME OVER!" << endl;
     cout << "You got it right in " << attempts << " attemps!" << endl;
+    cout << "You scored " << score << " points!" << endl;
 }
