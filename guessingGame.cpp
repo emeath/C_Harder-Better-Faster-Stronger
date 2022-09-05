@@ -1,8 +1,8 @@
 #include <iostream>
-
+using namespace std;
 int main() {
 
-std::cout << "#################################" << std::endl;
-std::cout << "# Welcome to the guessing game! #" << std::endl;
-std::cout << "#################################" << std::endl;
+cout << "#################################" << endl;
+cout << "# Welcome to the guessing game! #" << endl;
+cout << "#################################" << endl;
 }
