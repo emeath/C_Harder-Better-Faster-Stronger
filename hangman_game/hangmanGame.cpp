@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
 const string SECRET_WORD = "BANANA";
 map<char, bool> letter_already_guessed;
+vector<char> wrong_guesses;
+
 
 bool letter_exists(char guess)
 {
@@ -24,6 +27,11 @@ bool letter_exists(char guess)
 
 int main()
 {
+    cout << "+++++++++++++++++++++++++++++++++++" << endl;
+    cout << "+          Hangman Game           +" << endl;
+    cout << "+++++++++++++++++++++++++++++++++++" << endl;
+    cout << endl;
+
     cout << SECRET_WORD << endl;
 
     bool not_right_answer = true;
@@ -31,6 +39,12 @@ int main()
 
     while (not_right_answer && not_hanged)
     {
+        cout << "Wrong guesses: ";
+        for(char letter : wrong_guesses) {
+            cout << letter << " ";
+        }
+        cout << endl;
+
         for (char letter : SECRET_WORD)
         {
             if (letter_already_guessed[letter])
@@ -44,6 +58,8 @@ int main()
         }
         cout << endl;
 
+        cout << "Your guess: ";
+
         char guess;
         cin >> guess;
         if (letter_exists(guess))
@@ -54,6 +70,9 @@ int main()
         else
         {
             cout << "Wrong guess!" << endl;
+            wrong_guesses.push_back(guess);
         }
+
+        cout << endl;
     }
 }
