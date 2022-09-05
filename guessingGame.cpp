@@ -1,5 +1,7 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
 
@@ -8,25 +10,36 @@ int main()
     cout << "#################################" << endl;
 
     const int SECRET_NUMBER = 42;
-
+    bool did_not_got_it_right = true;
     int guess;
-    cout << "Guess a number: ";
-    cin >> guess;
-    cout << "You guessed: " << guess << endl;
+    int attempts = 0;
 
-    bool gotItRight = guess == SECRET_NUMBER;
-    bool isBigger = guess > SECRET_NUMBER;
+    while (did_not_got_it_right)
+    {
+        cout << "Guess a number: ";
+        cin >> guess;
+        cout << "You guessed: " << guess << endl;
 
-    if (gotItRight)
-    {
-        cout << "Congratulation! You guessed correctly the secret number!" << endl;
+        bool got_it_right = guess == SECRET_NUMBER;
+        bool is_bigger = guess > SECRET_NUMBER;
+
+        if (got_it_right)
+        {
+            cout << "Congratulation! You guessed correctly the secret number!" << endl;
+            did_not_got_it_right = false;
+        }
+        else if (is_bigger)
+        {
+            cout << "Your guess is biggger then the secret number!" << endl;
+        }
+        else
+        {
+            cout << "Your guess is smaller then the secret number!" << endl;
+        }
+
+        attempts++;
     }
-    else if (isBigger)
-    {
-        cout << "Your guess is biggger then the secret number!" << endl;
-    }
-    else
-    {
-        cout << "Your guess is smaller then the secret number!" << endl;
-    }
+
+    cout << "GAME OVER!" << endl;
+    cout << "You got it right in " << attempts << " attemps!" << endl;
 }
