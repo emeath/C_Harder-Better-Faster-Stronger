@@ -47,5 +47,9 @@ int main()
 
     cout << "GAME OVER!" << endl;
     cout << "You got it right in " << attempts << " attemps!" << endl;
+    
+    cout.precision(2);
+    cout << fixed;
+    
     cout << "You scored " << score << " points!" << endl;
 }
