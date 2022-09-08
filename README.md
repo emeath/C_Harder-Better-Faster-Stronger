@@ -7,7 +7,7 @@ Use on Ubuntu to install c++ compiler
 sudo apt install build-essential
 ```
 
-To compile a c++ source code, do as follows:
+To compile a c++ source code and link the object output, do as follows:
 
 ```shell
 g++ YOUR_SOURCE_CODE_FILE.cpp -o NAME_OF_COMPILED_FILE.out
